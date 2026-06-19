@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HerHealth - Period Tracker</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#fff5f7,#ffeef5);
+    text-align:center;
+    padding:50px;
+}
+
+.back-btn{
+    background:#d63384;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+.container{
+    background:white;
+    width:500px;
+    margin:auto;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    transition:0.3s;
+}
+
+.container:hover{
+    transform:scale(1.01);
+}
+
+h1{
+    color:#d63384;
+}
+
+input{
+    width:90%;
+    padding:12px;
+    margin:10px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.main-btn{
+    background:#d63384;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.main-btn:hover{
+    transform:scale(1.05);
+}
+
+#result{
+    margin-top:25px;
+    text-align:left;
+    background:#fff5f7;
+    padding:20px;
+    border-radius:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<button class="back-btn" onclick="location.href='dashboard.html'">
+⬅ Back to Dashboard
+</button>
+
+<div class="container">
+
+<h1>🌸 Period Tracker</h1>
+
+<p>Track your cycle and receive fertility insights.</p>
+
+<input type="date" id="lastPeriod">
+
+<input type="number" id="cycleLength"
+placeholder="Cycle Length (Days)">
+
+<br><br>
+
+<button class="main-btn" onclick="calculatePeriod()">
+Predict Cycle
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function calculatePeriod(){
+
+let date=document.getElementById("lastPeriod").value;
+let cycle=parseInt(document.getElementById("cycleLength").value);
+
+if(!date || !cycle){
+    alert("Please fill all fields");
+    return;
+}
+
+let nextDate=new Date(date);
+nextDate.setDate(nextDate.getDate()+cycle);
+
+let ovulationDate=new Date(date);
+ovulationDate.setDate(ovulationDate.getDate()+(cycle-14));
+
+let fertileStart=new Date(ovulationDate);
+fertileStart.setDate(fertileStart.getDate()-5);
+
+let fertileEnd=new Date(ovulationDate);
+fertileEnd.setDate(fertileEnd.getDate()+1);
+
+document.getElementById("result").innerHTML=`
+
+<h3 style="color:#d63384;">
+🌸 Cycle Insights
+</h3>
+
+<p>
+<b>Next Period:</b>
+${nextDate.toDateString()}
+</p>
+
+<p>
+<b>Ovulation Date:</b>
+${ovulationDate.toDateString()}
+</p>
+
+<p>
+<b>Fertile Window:</b>
+${fertileStart.toDateString()}
+to
+${fertileEnd.toDateString()}
+</p>
+
+<p>
+💧 Stay hydrated and maintain a healthy lifestyle.
+</p>
+
+`;
+}
+
+</script>
+
+</body>
+</html>

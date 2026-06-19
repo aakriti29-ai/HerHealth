@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HerHealth - Pregnancy Tracker</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#fff5f7,#ffeef5);
+    text-align:center;
+    padding:50px;
+}
+
+.back-btn{
+    background:#d63384;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+.container{
+    background:white;
+    width:550px;
+    margin:auto;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    transition:0.3s;
+}
+
+.container:hover{
+    transform:scale(1.01);
+}
+
+h1{
+    color:#d63384;
+}
+
+input{
+    width:90%;
+    padding:12px;
+    margin:10px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.main-btn{
+    background:#d63384;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.main-btn:hover{
+    transform:scale(1.05);
+}
+
+#result{
+    margin-top:25px;
+    text-align:left;
+    background:#fff5f7;
+    padding:20px;
+    border-radius:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<button class="back-btn" onclick="location.href='dashboard.html'">
+⬅ Back to Dashboard
+</button>
+
+<div class="container">
+
+<h1>🤰 Pregnancy Tracker</h1>
+
+<p>Track pregnancy progress and receive personalized guidance.</p>
+
+<input type="date" id="dueDate">
+
+<br><br>
+
+<button class="main-btn" onclick="calculateWeek()">
+Check Progress
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function calculateWeek(){
+
+let dueDate = new Date(document.getElementById("dueDate").value);
+
+if(!document.getElementById("dueDate").value){
+    alert("Please select a due date");
+    return;
+}
+
+let today = new Date();
+
+let totalPregnancyDays = 280;
+
+let daysLeft = Math.floor((dueDate - today)/(1000*60*60*24));
+
+let week = Math.floor((totalPregnancyDays - daysLeft)/7);
+
+let trimester="";
+let tip="";
+let babyStage="";
+
+if(week <= 12){
+    trimester="First Trimester";
+    babyStage="🌱 Early Development Stage";
+    tip="Focus on folic acid, hydration, and regular checkups.";
+}
+else if(week <= 27){
+    trimester="Second Trimester";
+    babyStage="👶 Rapid Growth Stage";
+    tip="Maintain balanced nutrition and light exercise.";
+}
+else{
+    trimester="Third Trimester";
+    babyStage="🤰 Final Development Stage";
+    tip="Prepare for delivery and monitor baby movements.";
+}
+
+document.getElementById("result").innerHTML = `
+
+<h3 style="color:#d63384;">
+🤰 Pregnancy Insights
+</h3>
+
+<p><b>Current Pregnancy Week:</b> ${week}</p>
+
+<p><b>Trimester:</b> ${trimester}</p>
+
+<p><b>Baby Growth Stage:</b> ${babyStage}</p>
+
+<p><b>Health Tip:</b> ${tip}</p>
+
+<p>💖 Remember to stay hydrated and attend regular prenatal checkups.</p>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>

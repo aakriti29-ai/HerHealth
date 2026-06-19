@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HerHealth - Recovery Tracker</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#fff5f7,#ffeef5);
+    text-align:center;
+    padding:50px;
+}
+
+.container{
+    background:white;
+    width:550px;
+    margin:auto;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    transition:0.3s;
+}
+
+.container:hover{
+    transform:scale(1.01);
+}
+
+h1{
+    color:#d63384;
+}
+
+input,select{
+    width:90%;
+    padding:12px;
+    margin:10px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+button{
+    background:#d63384;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#result{
+    margin-top:25px;
+    text-align:left;
+    background:#fff5f7;
+    padding:20px;
+    border-radius:15px;
+}
+
+.back-btn{
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>💖 Recovery Tracker</h1>
+
+<p>Track your wellness and recovery progress.</p>
+
+<input type="number" id="sleep"
+placeholder="Sleep Hours">
+
+<input type="number" id="water"
+placeholder="Water Intake (Glasses)">
+
+<select id="mood">
+    <option>Happy 😊</option>
+    <option>Normal 😐</option>
+    <option>Tired 😴</option>
+</select>
+
+<br><br>
+
+<button onclick="saveData()">
+Generate Recovery Report
+</button>
+
+<div id="result"></div>
+
+<button class="back-btn"
+onclick="location.href='dashboard.html'">
+⬅ Back to Dashboard
+</button>
+
+</div>
+
+<script>
+
+function saveData(){
+
+let sleep=parseInt(document.getElementById("sleep").value);
+let water=parseInt(document.getElementById("water").value);
+let mood=document.getElementById("mood").value;
+
+if(!sleep || !water){
+    alert("Please fill all fields");
+    return;
+}
+
+let score=0;
+
+if(sleep>=7) score+=50;
+else score+=25;
+
+if(water>=8) score+=50;
+else score+=25;
+
+let status="";
+let tip="";
+
+if(score>=90){
+    status="🌟 Excellent Recovery";
+    tip="Keep maintaining your healthy routine.";
+}
+else if(score>=70){
+    status="✅ Good Recovery";
+    tip="Focus on hydration and quality sleep.";
+}
+else{
+    status="⚠ Needs Improvement";
+    tip="Increase sleep and water intake.";
+}
+
+document.getElementById("result").innerHTML=`
+
+<h3 style="color:#d63384;">
+💖 Recovery Report
+</h3>
+
+<p><b>Sleep:</b> ${sleep} hrs</p>
+
+<p><b>Water Intake:</b> ${water} glasses</p>
+
+<p><b>Mood:</b> ${mood}</p>
+
+<p><b>Recovery Score:</b> ${score}%</p>
+
+<p><b>Wellness Level:</b> ${status}</p>
+
+<p><b>Recommendation:</b> ${tip}</p>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>

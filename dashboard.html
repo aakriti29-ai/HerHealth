@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HerHealth Dashboard</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:
+linear-gradient(
+135deg,
+#fff0f6,
+#ffe4ef,
+#fff7fb
+);
+    padding:40px;
+    margin:0;
+}
+
+.card{
+    background:white;
+    width:280px;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(214,51,132,0.15);
+    transition:all 0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 15px 35px rgba(214,51,132,0.25);
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:50px;
+    flex-wrap:wrap;
+}
+
+button{
+    background:#d63384;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.feature-box{
+    background:linear-gradient(135deg,#ffffff,#fff5fa);
+    padding:30px;
+    border-radius:20px;
+    width:260px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(214,51,132,0.15);
+    transition:all 0.3s ease;
+}
+
+.feature-box:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(214,51,132,0.25);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    padding:15px 30px;
+    border-radius:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.navbar h2{
+    color:#d63384;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:#555;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+.hero{
+    background:linear-gradient(135deg,#d63384,#ff6fb5);
+    padding:60px;
+    border-radius:25px;
+    text-align:center;
+    color:white;
+    margin-top:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:22px;
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.tip-box{
+    margin-top:60px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+footer{
+    margin-top:60px;
+    text-align:center;
+    color:#666;
+    padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<div class="navbar">
+
+<div style="display:flex;align-items:center;gap:12px;">
+
+<img src="logo.jpeg"
+style="
+width:55px;
+height:55px;
+object-fit:contain;
+">
+
+<h2 style="color:#d63384;">
+HerHealth
+</h2>
+
+</div>
+
+<div>
+<a href="dashboard.html">Home</a>
+<a href="period.html">Period</a>
+<a href="pregnancy.html">Pregnancy</a>
+<a href="recovery.html">Recovery</a>
+</div>
+
+</div>
+<!-- Hero Section -->
+
+<div class="hero">
+
+    <h1>HerHealth</h1>
+<p style="
+font-size:18px;
+margin-top:15px;
+opacity:0.95;
+">
+Women's Wellness Platform
+</p>
+    <p>
+        Empowering women through smart health tracking,
+        pregnancy monitoring, recovery support,
+        and AI-powered wellness guidance.
+    </p>
+
+</div>
+
+
+<!-- Main Feature Cards -->
+
+<div class="container">
+
+    <div class="card">
+        <h2>🌸 Period Tracker</h2>
+        <p>Track and predict your next cycle.</p>
+        <button onclick="location.href='period.html'">
+            Open
+        </button>
+    </div>
+
+    <div class="card">
+        <h2>🤰 Pregnancy Tracker</h2>
+        <p>Monitor pregnancy progress.</p>
+        <button onclick="location.href='pregnancy.html'">
+            Open
+        </button>
+    </div>
+
+    <div class="card">
+        <h2>💖 Recovery Tracker</h2>
+        <p>Track recovery and wellness.</p>
+        <button onclick="location.href='recovery.html'">
+            Open
+        </button>
+    </div>
+
+    <div class="card">
+        <h2>🤖 AI Assistant</h2>
+        <p>Get instant health guidance.</p>
+        <button onclick="location.href='assistant.html'">
+            Open
+        </button>
+    </div>
+
+</div>
+
+<!-- Daily Health Tip -->
+
+<div class="tip-box">
+
+<h2 style="
+color:#d63384;
+font-size:35px;
+margin-bottom:25px;
+">
+🌿 Daily Wellness Tips
+</h2>
+
+<div style="
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+">
+
+<button onclick="previousTip()">⬅</button>
+
+<div id="tipText" style="
+background:#fff5fa;
+padding:25px;
+border-radius:20px;
+max-width:650px;
+font-size:20px;
+box-shadow:0 5px 15px rgba(214,51,132,0.1);
+">
+💧 Drink at least 8 glasses of water daily.
+</div>
+
+<button onclick="nextTip()">➡</button>
+
+</div>
+
+</div>
+
+<!-- Why Choose HerHealth -->
+
+<div style="margin-top:80px;text-align:center;">
+
+<h2 style="
+color:#d63384;
+font-size:42px;
+margin-bottom:15px;
+">
+✨ Why Choose HerHealth?
+</h2>
+
+<p style="
+font-size:18px;
+color:#666;
+max-width:700px;
+margin:auto;
+margin-bottom:40px;
+">
+A complete women's wellness platform combining
+tracking, recovery monitoring,
+pregnancy care and AI-powered support.
+</p>
+
+<div style="
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+">
+
+<div class="feature-box">
+<div style="font-size:55px;">🌸</div>
+<h3 style="color:#d63384;">Period Tracking</h3>
+<p>Predict cycles, ovulation dates and fertile windows.</p>
+</div>
+
+<div class="feature-box">
+<div style="font-size:55px;">🤰</div>
+<h3 style="color:#d63384;">Pregnancy Monitoring</h3>
+<p>Track trimester progress and baby development.</p>
+</div>
+
+<div class="feature-box">
+<div style="font-size:55px;">💖</div>
+<h3 style="color:#d63384;">Recovery Support</h3>
+<p>Monitor sleep, hydration and wellness score.</p>
+</div>
+
+<div class="feature-box">
+<div style="font-size:55px;">🤖</div>
+<h3 style="color:#d63384;">AI Guidance</h3>
+<p>Receive instant wellness recommendations.</p>
+</div>
+
+</div>
+
+</div>
+<script>
+
+let tips = [
+"💧 Drink at least 8 glasses of water daily.",
+"😴 Get 7–9 hours of quality sleep every night.",
+"🥗 Eat fruits, vegetables and protein-rich foods.",
+"🏃 Stay active for at least 30 minutes daily.",
+"🧘 Practice meditation and stress management.",
+"❤️ Schedule regular health checkups."
+];
+
+let currentTip = 0;
+
+function nextTip(){
+currentTip++;
+if(currentTip >= tips.length){
+currentTip = 0;
+}
+document.getElementById("tipText").innerHTML = tips[currentTip];
+}
+
+function previousTip(){
+currentTip--;
+if(currentTip < 0){
+currentTip = tips.length - 1;
+}
+document.getElementById("tipText").innerHTML = tips[currentTip];
+}
+
+</script>
+
+<footer>
+
+<h3 style="color:#d63384;">
+HerHealth
+</h3>
+
+<p>
+Empowering Women's Wellness Through Technology
+</p>
+
+<br>
+
+© 2026 HerHealth. All Rights Reserved.
+
+</footer>
+</body>
+</html>

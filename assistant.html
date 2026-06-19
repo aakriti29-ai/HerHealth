@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HerHealth AI Assistant</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#fff5f7,#ffeef5);
+    text-align:center;
+    padding:50px;
+}
+
+.container{
+    background:white;
+    width:600px;
+    margin:auto;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+
+h1{
+    color:#d63384;
+}
+
+.chat-box{
+    margin-top:20px;
+    min-height:150px;
+    background:#fafafa;
+    border-radius:15px;
+    padding:20px;
+    text-align:left;
+}
+
+.user{
+    background:#ffe4f0;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+
+.bot{
+    background:#f5f5f5;
+    padding:12px;
+    border-radius:12px;
+}
+
+input{
+    width:75%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+button{
+    background:#d63384;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.back-btn{
+    margin-top:20px;
+}
+
+.quick-topics{
+    margin-top:15px;
+    color:#666;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 AI Health Assistant</h1>
+
+<p>Your personal women's wellness companion.</p>
+
+<div class="quick-topics">
+Try asking:
+<br>
+period pain • pregnancy • diet • sleep • stress • exercise • cramps • water
+</div>
+
+<br>
+
+<input type="text" id="question"
+placeholder="Ask a health question">
+
+<button onclick="getAnswer()">Ask</button>
+
+<div id="response" class="chat-box">
+
+<div class="bot">
+🤖 Hello! How can I help you today?
+</div>
+
+</div>
+
+<button class="back-btn"
+onclick="location.href='dashboard.html'">
+⬅ Back to Dashboard
+</button>
+
+</div>
+
+<script>
+
+function getAnswer(){
+
+let q=document.getElementById("question").value.toLowerCase();
+let answer="";
+
+if(q.includes("period")){
+answer="🌸 Stay hydrated, rest well, and track your cycle regularly.";
+}
+
+else if(q.includes("pregnancy")){
+answer="🤰 Eat nutritious food, stay active, and attend regular checkups.";
+}
+
+else if(q.includes("diet")){
+answer="🥗 Include fruits, vegetables, protein, and plenty of water.";
+}
+
+else if(q.includes("pain")){
+answer="🌡 A heating pad, hydration, and rest may help with mild period pain.";
+}
+
+else if(q.includes("exercise")){
+answer="🏃 Light walking, yoga, and stretching can support overall wellness.";
+}
+
+else if(q.includes("water")){
+answer="💧 Aim to stay hydrated throughout the day.";
+}
+
+else if(q.includes("stress")){
+answer="🧘 Try meditation, deep breathing, and adequate sleep.";
+}
+
+else if(q.includes("sleep")){
+answer="😴 Adults generally benefit from 7–9 hours of quality sleep.";
+}
+
+else if(q.includes("cramps")){
+answer="💖 Warm compresses and hydration may help relieve mild cramps.";
+}
+
+else{
+answer="⚠ Please consult a healthcare professional for personalized advice.";
+}
+
+document.getElementById("response").innerHTML=`
+
+<div class="user">
+👩 You: ${q}
+</div>
+
+<div class="bot">
+🤖 ${answer}
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HerHealth</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#fff5f7,#ffeef5,#fff8fb);
+color:#333;
+}
+
+/* Navbar */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 60px;
+background:white;
+box-shadow:0 2px 15px rgba(0,0,0,0.08);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+font-size:34px;
+font-weight:700;
+color:#d63384;
+}
+
+.logo img{
+width:60px;
+height:60px;
+object-fit:contain;
+}
+
+.nav-links a{
+text-decoration:none;
+margin-left:25px;
+color:#555;
+font-weight:600;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#d63384;
+}
+
+/* Hero */
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:90px 80px;
+flex-wrap:wrap;
+gap:50px;
+}
+
+.hero-text{
+max-width:650px;
+}
+
+.hero-text h1{
+font-size:90px;
+color:#d63384;
+margin-bottom:20px;
+}
+
+.hero-text h3{
+font-size:32px;
+color:#444;
+margin-bottom:20px;
+}
+
+.hero-text p{
+font-size:22px;
+line-height:1.8;
+color:#666;
+}
+
+.btn{
+background:#d63384;
+color:white;
+border:none;
+padding:18px 35px;
+border-radius:15px;
+font-size:18px;
+cursor:pointer;
+margin-top:30px;
+transition:.3s;
+font-weight:600;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.hero-card{
+background:white;
+padding:35px;
+width:400px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(214,51,132,0.15);
+}
+
+.hero-card h2{
+color:#d63384;
+margin-bottom:20px;
+}
+
+.hero-card p{
+margin-bottom:15px;
+font-size:18px;
+}
+
+/* Titles */
+
+.section-title{
+text-align:center;
+font-size:44px;
+color:#d63384;
+margin:70px 0 30px;
+}
+
+/* Cards */
+
+.cards{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+padding:20px 50px;
+}
+
+.card{
+background:white;
+width:270px;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(214,51,132,0.12);
+transition:.3s;
+text-align:center;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+color:#d63384;
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+line-height:1.6;
+}
+
+/* Stats */
+
+.stats{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+padding:40px;
+}
+
+.stat{
+background:white;
+width:220px;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(214,51,132,0.12);
+text-align:center;
+}
+
+.stat h2{
+font-size:45px;
+color:#d63384;
+}
+
+/* CTA */
+
+.cta{
+margin-top:70px;
+background:linear-gradient(135deg,#d63384,#ff6fb5);
+color:white;
+text-align:center;
+padding:90px 20px;
+}
+
+.cta h2{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.cta p{
+font-size:22px;
+}
+
+/* Footer */
+
+footer{
+background:white;
+padding:25px;
+text-align:center;
+color:#666;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<div class="navbar">
+
+<div class="logo">
+<img src="logo.jpeg" alt="HerHealth Logo">
+<span>HerHealth</span>
+</div>
+
+<div class="nav-links">
+<a href="dashboard.html">Dashboard</a>
+<a href="period.html">Period</a>
+<a href="pregnancy.html">Pregnancy</a>
+<a href="recovery.html">Recovery</a>
+</div>
+
+</div>
+
+<!-- Hero Section -->
+
+<div class="hero">
+
+<div class="hero-text">
+
+<h1>HerHealth</h1>
+
+<h3>Your Complete Women's Wellness Companion</h3>
+
+<p>
+Track menstrual health, monitor pregnancy,
+support recovery, and receive AI-powered
+health guidance — all from one smart platform.
+</p>
+
+<button class="btn"
+onclick="location.href='dashboard.html'">
+Get Started →
+</button>
+
+</div>
+
+<div class="hero-card">
+
+<h2>Health Overview</h2>
+
+<p>✓ Period Tracking</p>
+
+<p>✓ Pregnancy Monitoring</p>
+
+<p>✓ Recovery Support</p>
+
+<p>✓ AI Health Assistant</p>
+
+<p>✓ Personalized Insights</p>
+
+<p>✓ Private & Secure</p>
+
+</div>
+
+</div>
+
+<!-- Features -->
+
+<h2 class="section-title">
+Why Choose HerHealth?
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🌸 Period Health</h3>
+<p>Predict cycles, ovulation dates and fertility windows.</p>
+</div>
+
+<div class="card">
+<h3>🤰 Pregnancy Care</h3>
+<p>Monitor pregnancy progress and weekly development.</p>
+</div>
+
+<div class="card">
+<h3>💖 Recovery Tracking</h3>
+<p>Track sleep, hydration and overall wellness.</p>
+</div>
+
+<div class="card">
+<h3>🤖 AI Guidance</h3>
+<p>Receive instant wellness recommendations.</p>
+</div>
+
+</div>
+
+<!-- Stats -->
+
+<h2 class="section-title">
+Platform Highlights
+</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h2>4</h2>
+<p>Core Modules</p>
+</div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>AI Assistance</p>
+</div>
+
+<div class="stat">
+<h2>100%</h2>
+<p>User Friendly</p>
+</div>
+
+</div>
+
+<!-- FAQ -->
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Is HerHealth free?</h3>
+<p>Yes, all core features are available for free.</p>
+</div>
+
+<div class="card">
+<h3>Is my data secure?</h3>
+<p>Your information remains private and secure.</p>
+</div>
+
+<div class="card">
+<h3>Can I use all modules together?</h3>
+<p>Yes, all modules are integrated into one platform.</p>
+</div>
+
+</div>
+
+<!-- CTA -->
+
+<div class="cta">
+
+<h2>Start Your Wellness Journey Today</h2>
+
+<p>
+Take control of your health with HerHealth.
+</p>
+
+<button class="btn"
+style="background:white;color:#d63384;"
+onclick="location.href='dashboard.html'">
+Open Dashboard
+</button>
+
+</div>
+
+<footer>
+© 2026 HerHealth | Empowering Women's Wellness
+</footer>
+
+</body>
+</html>
